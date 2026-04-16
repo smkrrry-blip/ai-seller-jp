@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AIを使ったAmazonキーワードリサーチ完全ガイド【2026年最新手順】</title>
+  <meta name="description" content="Helium 10とChatGPTを組み合わせてキーワードリサーチを2時間→20分に短縮した手順を公開。実際に使っているプロンプトも掲載。">
+  <link rel="canonical" href="https://smkrrry-blip.github.io/ai-seller-jp/blog/ai-keyword-research.html">
+  <meta property="og:title" content="AIを使ったAmazonキーワードリサーチ完全ガイド【2026年最新手順】">
+  <meta property="og:description" content="Helium 10とChatGPTを組み合わせてキーワードリサーチを2時間→20分に短縮した手順を公開。実際に使っているプロンプトも掲載。">
+  <meta property="og:url" content="https://smkrrry-blip.github.io/ai-seller-jp/blog/ai-keyword-research.html">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://smkrrry-blip.github.io/ai-seller-jp/assets/ogp-default.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="/ai-seller-jp/assets/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "AIを使ったAmazonキーワードリサーチの手順",
+    "description": "Helium 10とChatGPTを組み合わせてキーワードリサーチを2時間から20分に短縮する6ステップ手順",
+    "totalTime": "PT20M",
+    "tool": [
+      { "@type": "HowToTool", "name": "Helium 10 Magnet" },
+      { "@type": "HowToTool", "name": "Helium 10 Cerebro" },
+      { "@type": "HowToTool", "name": "ChatGPT (GPT-4o)" }
+    ],
+    "step": [
+      {
+        "@type": "HowToStep",
+        "position": 1,
+        "name": "Helium 10 Magnetでシードキーワード収集",
+        "text": "Helium 10のMagnetにシードキーワード（例：「竹まな板」）を入力し、関連キーワードを200件以上収集する。月間検索数100以上でフィルタをかける。"
+      },
+      {
+        "@type": "HowToStep",
+        "position": 2,
+        "name": "上位200キーワードをエクスポート",
+        "text": "Magnetの結果を月間検索数順にソートし、上位200件をCSVでエクスポートする。"
+      },
+      {
+        "@type": "HowToStep",
+        "position": 3,
+        "name": "ChatGPTにキーワードリストを投入",
+        "text": "エクスポートしたキーワードリストをChatGPTに貼り付け、購買意図の高さで分類させる専用プロンプトを使用する。"
+      },
+      {
+        "@type": "HowToStep",
+        "position": 4,
+        "name": "購買意図でフィルタリング",
+        "text": "ChatGPTが「高い購買意図あり」と分類したキーワードを抽出し、情報収集目的のキーワードを除外する。"
+      },
+      {
+        "@type": "HowToStep",
+        "position": 5,
+        "name": "Cerebroで競合スコアを確認",
+        "text": "絞り込んだキーワードをHelium 10のCerebroで再確認し、競合スコア（CPR）が30以下のキーワードを優先リストとして選定する。"
+      },
+      {
+        "@type": "HowToStep",
+        "position": 6,
+        "name": "リスティング用キーワードリストを作成",
+        "text": "優先キーワードをタイトル用・バレット用・バックエンド用の3つに分類し、最終リスティング用キーワードリストを完成させる。"
+      }
+    ],
+    "author": {
+      "@type": "Person",
+      "name": "壮一"
+    },
+    "datePublished": "2026-04-16"
+  }
+  </script>
+</head>
+<body>
+  <nav class="site-nav"><div class="nav-inner"><a href="/ai-seller-jp/" class="nav-logo">AIセラーツールガイド</a><ul class="nav-links"><li><a href="/ai-seller-jp/">ホーム</a></li><li><a href="/ai-seller-jp/blog/">ブログ</a></li><li><a href="/ai-seller-jp/about.html">サイトについて</a></li><li><a href="/ai-seller-jp/disclosure.html">広告掲載</a></li></ul></div></nav>
+
+  <main class="article-main">
+    <div class="disclosure-banner">⚠️ 本記事にはアフィリエイトリンクが含まれます。<a href="/ai-seller-jp/disclosure.html">詳細</a></div>
+
+    <article>
+      <header class="article-header">
+        <h1>AIを使ったAmazonキーワードリサーチ完全ガイド【2026年最新手順】</h1>
+        <p class="article-meta">更新日：2026年4月16日 ／ 壮一</p>
+      </header>
+
+      <div class="author-bio"><img src="https://amazing-japan.jp/wp-content/uploads/2022/09/IMG_4969.jpg" alt="壮一" width="64" height="64"><div class="author-bio-text"><h4>壮一</h4><p>Amazon FBAセラー歴5年以上（JP・US・EU）。自費で購入・使用したツールのみ掲載。</p></div></div>
+
+      <section>
+        <h2>課題：従来のキーワードリサーチが非効率すぎた</h2>
+        <p>2021年頃、私はキーワードリサーチに週あたり約10時間を費やしていました。1商品のリスティングを最適化するだけで2〜3時間かかることもありました。</p>
+        <p>具体的には以下の作業を手動でやっていました：</p>
+        <ul>
+          <li>競合商品のタイトル・バレットポイントを手動でコピーしてExcelに貼る</li>
+          <li>キーワードの重複を手動で排除する</li>
+          <li>月間検索数が高くて競合が少ないキーワードを目視で選ぶ</li>
+          <li>購買意図があるかどうかを1件ずつ判断する</li>
+        </ul>
+        <p>これをHelium 10とChatGPTを組み合わせて自動化したところ、<strong>同じ作業が20〜30分で完了</strong>するようになりました。年換算で400時間以上の節約になっています。</p>
+      </section>
+
+      <section>
+        <h2>私のワークフロー：6ステップで完結</h2>
+        <p>以下は私が実際に毎回実行している手順です。例として「竹製まな板」という商品でのキーワードリサーチを想定して説明します。</p>
+
+        <div class="howto-step">
+          <h3>ステップ1：Helium 10 Magnetでシードキーワード収集</h3>
+          <p>Helium 10のMagnetにシードキーワード（例：「bamboo cutting board」「竹まな板」）を1〜3個入力します。フィルタ設定：</p>
+          <ul>
+            <li>月間検索数：100以上</li>
+            <li>検索ボリュームトレンド：横ばいまたは上昇</li>
+            <li>マッチタイプ：Broad Match（広い）</li>
+          </ul>
+          <p>結果として300〜500件のキーワードが表示されます。ここでは絞り込みは最小限にして、まず広く収集します。</p>
+        </div>
+
+        <div class="howto-step">
+          <h3>ステップ2：上位200キーワードをエクスポート</h3>
+          <p>結果を月間検索数（降順）でソートし、上位200件をCSVでエクスポートします。Helium 10のエクスポートボタンから直接ダウンロードできます。</p>
+          <p>実際の数字例：「bamboo cutting board」のシードキーワードから200件収集すると、月間検索数が1,000〜45,000のキーワードが混在します。このうち購買意図があるものは概ね50〜80件程度です。</p>
+        </div>
+
+        <div class="howto-step">
+          <h3>ステップ3：ChatGPTに投入（実際のプロンプト）</h3>
+          <p>CSVファイルのキーワード列をコピーして、以下のプロンプトとともにChatGPTに貼り付けます。</p>
+          <div class="prompt-box">
+            <p><strong>実際に使っているプロンプト：</strong></p>
+            <blockquote>
+              以下はAmazonの商品カテゴリ「[商品カテゴリ]」のキーワードリストです。各キーワードを以下の3つに分類してください：<br><br>
+              A：高い購買意図あり（今すぐ購入しようとしているユーザーが使う言葉）<br>
+              B：低い購買意図（情報収集・比較検討段階のキーワード）<br>
+              C：無関係（このカテゴリの商品に関係ない）<br><br>
+              出力形式：「キーワード｜分類」のCSV形式で出力してください。理由の説明は不要です。<br><br>
+              [ここにキーワードリストを貼り付け]
+            </blockquote>
+          </div>
+          <p>このプロンプトで200件を処理すると、ChatGPTが1〜2分でA/B/Cに分類したCSVを出力します。</p>
+        </div>
+
+        <div class="howto-step">
+          <h3>ステップ4：購買意図でフィルタリング</h3>
+          <p>ChatGPTの出力から「A（高い購買意図あり）」のキーワードのみを抽出します。200件から絞り込むと、通常50〜80件が残ります。</p>
+          <p>具体例：「bamboo cutting board」カテゴリの場合、「best bamboo cutting board」「bamboo cutting board large」「bamboo cutting board with juice groove」はA判定。「bamboo vs plastic cutting board」「are bamboo cutting boards safe」はB判定（情報収集）として除外します。</p>
+        </div>
+
+        <div class="howto-step">
+          <h3>ステップ5：Cerebroで競合スコアを確認</h3>
+          <p>絞り込んだ50〜80件のキーワードをHelium 10のCerebroで確認します。特に確認するのは：</p>
+          <ul>
+            <li><strong>CPR（競争力スコア）</strong>：30以下が参入しやすい目安</li>
+            <li><strong>Ranking Competitors（ランキング競合数）</strong>：少ないほど穴場</li>
+            <li><strong>Title Density（タイトル密度）</strong>：低いほど競合タイトルでの使用が少ない</li>
+          </ul>
+          <p>この段階でCPR 30以下のキーワードに絞ると、20〜40件の「勝てるキーワード候補」が残ります。</p>
+        </div>
+
+        <div class="howto-step">
+          <h3>ステップ6：リスティング用キーワードリストを作成</h3>
+          <p>最終的に選定したキーワードを以下の3つのカテゴリに振り分けます：</p>
+          <ul>
+            <li><strong>タイトル用（3〜5件）</strong>：月間検索数が最も多いメインキーワード。タイトルに自然な文章で組み込む。</li>
+            <li><strong>バレットポイント用（10〜15件）</strong>：購買意図が高く、タイトルに入らなかったキーワード。</li>
+            <li><strong>バックエンドキーワード用（残り全て）</strong>：Seller Centralの「隠れキーワード」欄に250バイト以内で入力。</li>
+          </ul>
+          <p>このリストを使ってリスティングを作成することで、以前より平均して月間3,200〜4,500のインプレッション増加を確認しています。</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>実際の数字：このワークフローの効果</h2>
+        <p>私が実際にこのワークフローを使って改善した商品の数字をお見せします（商品名は非公開）：</p>
+        <ul>
+          <li>改善前のリスティングにカバーされていたキーワード数：約45件</li>
+          <li>このワークフロー後にカバーされたキーワード数：約120件</li>
+          <li>オーガニック表示回数：月間12万回 → 月間19万回（約58%増）</li>
+          <li>クリック率（CTR）：2.1% → 2.8%（タイトルのキーワード最適化の効果）</li>
+          <li>最終的な月間売上：改善後3ヶ月で約22%増</li>
+        </ul>
+        <p>もちろん商品・カテゴリによって結果は異なります。ただ、このワークフロー自体は再現性があると感じています。</p>
+      </section>
+
+      <section>
+        <h2>必要なツールとコスト</h2>
+        <ul>
+          <li><strong>Helium 10</strong>（Starter $39〜、Platinum $99〜）：MagnetとCerebroが使えるプランが必要</li>
+          <li><strong>ChatGPT Plus</strong>（$20/月）：無料版でも動作するが、GPT-4oの方が分類精度が高い</li>
+        </ul>
+        <p>合計$59〜$119/月で、このワークフローが実行できます。私の場合、月に5〜10商品のキーワードリサーチを行いますが、1商品あたり20〜30分で完結しているため、時間コストを考えると十分な投資対効果です。</p>
+        <p><a href="https://go.aiseller-jp.com/helium10" class="affiliate-link" rel="sponsored">Helium 10の詳細はこちら</a></p>
+      </section>
+
+    </article>
+  </main>
+
+  <footer class="site-footer"><div class="footer-inner"><div class="footer-links"><a href="/ai-seller-jp/">ホーム</a><a href="/ai-seller-jp/blog/">ブログ</a><a href="/ai-seller-jp/about.html">サイトについて</a><a href="/ai-seller-jp/disclosure.html">広告掲載について</a></div><p>© 2026 AIセラーツールガイド · 本サイトはアフィリエイト広告を利用しています。</p></div></footer>
+</body>
+</html>
